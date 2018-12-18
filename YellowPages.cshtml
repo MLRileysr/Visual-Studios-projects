@@ -1,0 +1,66 @@
+﻿@using December2_2.CustomHtmlHelpers
+@{
+    /**/
+    ViewBag.Title = "Yellow Pages";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+
+        </th>
+    </tr>
+   
+    <tbody>
+        <body style="background-color:yellow;">
+
+            @{
+                List<string> urlnames = new List<string>();
+                List<string> urlAddr = new List<string>();
+                List<string> urlImag = new List<string>();
+                List<string> urlHead = new List<string>();
+                List<string> urlHeadGrp = new List<string>();
+
+                urlnames = ViewBag.NameList;
+                urlAddr = ViewBag.NameAddr;
+                urlImag = ViewBag.ImgLocation;
+                urlHead = ViewBag.ListHead;
+                urlHeadGrp = ViewBag.ListheadGroup;
+                string saveHead = "";
+                int z = 0;
+                foreach (var item in urlImag)
+                {
+                    string urljpg = @item;
+                    string urlhead = urlHead[z];
+                    string urladr = urlAddr[z];
+                    string urlname = urlnames[z];
+                    string urlimag = urlImag[z];
+                    z++;
+            <tr>
+                <td>
+                     
+                    @if (saveHead != urlhead)
+                    {
+                    <H>
+                       <tp> @Html.TextBox("box1", urlhead)<tp/>
+                        
+                    </H>   
+                        saveHead = urlhead;
+                    }
+                </td>
+                <td>
+                    @Html.Image(urlimag, "", urlimag);
+                </td>
+                <td>
+                    @Html.TextBox("box1", urlname);
+                </td>
+                <td>
+                    @Html.TextBox("box1", urladr);
+                </td>
+            </tr>
+                }
+            }
+        </body>
+    </tbody>
+</table>
+}

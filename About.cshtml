@@ -1,0 +1,38 @@
+﻿@using December2_2.CustomHtmlHelpers
+@{
+    /**/
+    ViewBag.Title = "About";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+
+        </th>
+    </tr>
+    <tbody>
+        @{
+            List<string> urlnames= new List<string>();
+            List<string> urlid= new List<string>();
+            urlnames = ViewBag.NameFull;
+            urlid = ViewBag.MembId;
+            int z = 0;
+            foreach (var item in ViewBag.NameList)
+            {
+                string urljpg = @item;
+                string urlFull = @item;
+                string urlID = urlid[z];
+                string urlname = urlnames[z];
+                z++;
+                <tr>
+                    <td>
+                        @Html.Image(urljpg, urlFull ,urlID)
+                        @Html.Label(urlname)
+                        @Html.Label(urlID)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+}

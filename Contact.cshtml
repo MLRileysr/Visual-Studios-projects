@@ -1,0 +1,33 @@
+﻿@using December2_2.CustomHtmlHelpers
+@{
+
+}
+
+<tbody>
+    @{ 
+        string urljpg = ViewBag.Imageloc;
+        string urlFull = "no Image available";
+        string selName = ViewBag.FullName;
+        string selAddr = ViewBag.Addr;
+        string selHphon = ViewBag.HPhone;
+        string selPstat = ViewBag.Pstatus;
+        string urlID = ViewBag.Pstatus;
+
+    <tr>
+        <td>
+            @Html.Image(urljpg, urlFull, urlID)
+           
+        </td>
+        <td>
+            @Html.Label(selName)
+            @Html.Label(selAddr + "   ")
+            @Html.Label(selHphon + "****")
+            @Html.Label(selPstat)
+
+        </td>
+    </tr>
+    }
+ </tbody>
+
+
+
